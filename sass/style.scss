@@ -43,6 +43,7 @@ picture {
 	font-weight: 700;
 	cursor: pointer;
 	z-index: 0;
+	outline: none;
 	transition: background 0.3s;
 }
 
@@ -130,7 +131,7 @@ picture {
 	}
 	input {
 		margin-block-start: 0.7em;
-		padding: 1.2em 1.5em;
+		padding: 1.1em 1.5em;
 		width: 100%;
 		font-family: inherit;
 		border-radius: 8px;
@@ -145,14 +146,17 @@ picture {
 	&__btn {
 		@include btnStyles;
 
-		&:hover {
+		&:hover,
+		&:focus-visible {
 			background: none;
 			transition: background 0.5s;
 		}
-		&:hover::before {
+		&:hover::before,
+		&:focus-visible::before {
 			opacity: 1;
 		}
-		&:hover::after {
+		&:hover::after,
+		&:focus-visible::after {
 			opacity: 0.6;
 		}
 		&::before,
@@ -170,6 +174,13 @@ picture {
 		outline: 1px solid var(--darkBlue);
 		color: var(--darkBlue);
 	}
+}
+
+.form__box.error input {
+	background-color: hsla(4, 100%, 67%, 0.167);
+	border: 1px solid hsla(4, 100%, 67%, 0.675);
+	outline: 1px solid hsla(4, 100%, 67%, 0.675);
+	color: var(--red);
 }
 
 // subscribtion box
@@ -207,15 +218,19 @@ picture {
 		margin-block-start: auto;
 		text-decoration: none;
 		text-align: center;
+		font-size: 1.3rem;
 
-		&:hover {
+		&:hover,
+		&:focus-visible {
 			background: none;
 			transition: background 0.5s;
 		}
-		&:hover::before {
+		&:hover::before,
+		&:focus-visible::before {
 			opacity: 1;
 		}
-		&:hover::after {
+		&:hover::after,
+		&:focus-visible::after {
 			opacity: 0.6;
 		}
 		&::before,
@@ -291,7 +306,7 @@ picture {
 	}
 	.form {
 		display: flex;
-		border-radius: 30px;
+		border-radius: 35px;
 
 		&__img-box {
 			padding: 2em;
